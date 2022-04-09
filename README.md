@@ -4,19 +4,19 @@ __testo__ est un outil de test unitaire pour le _C++_ simple, léger et entière
 ## Utilisation
 1. Clonez le repo __ressource-club/testo__ dans votre projet, ou bien utilisez le en tant que __module Git__ : 
     ```sh
-    git submodule add https://github.com/ressource-club/testo.git lib/testo
+    git submodule add https://github.com/ressource-club/testo.git bib/testo
     ```
 
 2. Dans le fichier _CMakeLists.txt_ de votre projet, pensez à inclure le dossier contenant __testo__ dans la compilation avec la commande suivante :
     ```cmake
-    include(${CMAKE_CURRENT_LIST_DIR}/lib/testo/CMakeLists.txt)
+    include(${CMAKE_CURRENT_LIST_DIR}/bib/testo/CMakeLists.txt)
     ```
 
 3. Créez un dossier nommé __tests__ dans le répertoire contenant le fichier _CMakeLists.txt_ de votre projet. Vous y placerez l'ensemble de vos fichiers _.h_ et _.cpp_ contenant des tests unitaires.
 
 4. Dans un nouveau fichier __Tests.h__, écrivez votre premier test :
     ```cpp
-    #include "../lib/testo/include/testo.h"
+    #include "../bib/testo/include/testo.h"
 
     class Test : public resrc::testo::Test
     {

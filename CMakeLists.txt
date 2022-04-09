@@ -7,7 +7,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 set(RESRC_TESTO resrc.testo) # Nom du projet CMake
 set(RESRC_TESTO_VERSION 0.0.1) # Version du serveur
 set(RESRC_TESTO_RACINE ${CMAKE_CURRENT_LIST_DIR}/include/Racine.h) # En-tête racine (fichier de configuration)
-set(RESRC_TESTO_DOSSIER ${CMAKE_SOURCE_DIR}/readme/) # Chemin du dossier contenant les tests utilisateurs
+set(RESRC_TESTO_DOSSIER ${CMAKE_SOURCE_DIR}/tests/) # Chemin du dossier contenant les tests utilisateurs
 set(RESRC_TESTO_EXE testo) # Nom de l'executable généré
 
 # Paramètres
