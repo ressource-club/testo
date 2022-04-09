@@ -1,0 +1,7 @@
+# Editeurs
+.vscode/
+
+# Compilation
+cmake/
+bin/
+Racine.h
