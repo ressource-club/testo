@@ -5,7 +5,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 
 # CONSTANTES
 set(RESRC_TESTO resrc.testo) # Nom du projet CMake
-set(RESRC_TESTO_VERSION 0.0.1) # Version du serveur
+set(RESRC_TESTO_VERSION 0.0.2) # Version du serveur
 set(RESRC_TESTO_RACINE ${CMAKE_CURRENT_LIST_DIR}/include/Racine.h) # En-tête racine (fichier de configuration)
 set(RESRC_TESTO_DOSSIER ${CMAKE_SOURCE_DIR}/tests/) # Chemin du dossier contenant les tests utilisateurs
 set(RESRC_TESTO_EXE testo) # Nom de l'executable généré
@@ -42,13 +42,13 @@ file(
 # Sources utilisateurs
 file(
     GLOB_RECURSE
-    RESRC_TESTO_SRC_U
+    RESRC_TESTO_SRC_TESTS
     ${RESRC_TESTO_DOSSIER}/*.cpp
 )
 # En-têtes utilisateurs
 file(
     GLOB_RECURSE
-    RESRC_TESTO_INCLUDES_U
+    RESRC_TESTO_INCLUDES_TESTS
     ${RESRC_TESTO_DOSSIER}/*.h
 )
 
@@ -57,6 +57,7 @@ add_executable(
     ${RESRC_TESTO_EXE}
     ${RESRC_TESTO_SRC}
     ${RESRC_TESTO_INCLUDES}
-    ${RESRC_TESTO_SRC_U}
-    ${RESRC_TESTO_INCLUDES_U}
+    ${RESRC_TESTO_SRC_TESTS}
+    ${RESRC_TESTO_INCLUDES_TETS}
+    ${RESRC_TESTO_PROJET} # Liste des fichiers du projet à tester
 )

@@ -11,6 +11,14 @@ __testo__ est un outil de test unitaire pour le _C++_ simple, léger et entière
     ```cmake
     include(${CMAKE_CURRENT_LIST_DIR}/bib/testo/CMakeLists.txt)
     ```
+    Vous pouvez également ajouter les fichiers sources de votre projet à la compilation de __testo__ grâce à la variable _RESRC_TESTO_PROJET_ :
+    ```cmake
+    set(
+        RESRC_TESTO_PROJET
+        ${PROJET_INCLUDES}  # Fichiers d'entête
+        ${PROJET_SRC}       # Fichiers sources
+    )
+    ```
 
 3. Créez un dossier nommé __tests__ dans le répertoire contenant le fichier _CMakeLists.txt_ de votre projet. Vous y placerez l'ensemble de vos fichiers _.h_ et _.cpp_ contenant des tests unitaires.
 
@@ -41,9 +49,9 @@ __testo__ est un outil de test unitaire pour le _C++_ simple, léger et entière
         }
     };    
     ```
-    _Vous pouvez spécifier dans le constructeur si vous souhaitez que la suite de tests s'arrête au premier échec rencontré, ou bien à la première erreur non gérée._
+    > ___REMARQUE :__ vous pouvez spécifier dans le constructeur si vous souhaitez que la suite de tests s'__arrête au premier échec__ rencontré, ou bien à la __première erreur__ non gérée._
 
-6. Créez enfin un fichier _.cpp_ implémentant la fonction __main__ dans laquelle vous déclarerez votre test et votre suite de tests :
+6. Créez enfin un fichier _.cpp_ implémentant la fonction __main__ dans laquelle vous ajouterez votre test et votre suite de tests à l'application de test :
     ```cpp
     #include "Tests.h"
 
@@ -57,8 +65,9 @@ __testo__ est un outil de test unitaire pour le _C++_ simple, léger et entière
         return resrc::testo::app::executer(argc, argv);
     }
     ```
+    > ___REMARQUE :__ ajouter un test à l'application (première opération) revient à l'ajouter à la suite de tests par défaut nommée __tests__._
 
-7. Compilez l'application grâce à _CMake_ :
+7. Compilez ensuite l'application à l'aide de _CMake_ :
     ```sh
     mkdir cmake
     cd cmake
@@ -68,11 +77,11 @@ __testo__ est un outil de test unitaire pour le _C++_ simple, léger et entière
 
 8. Lancez l'application de test ```testo``` qui a été génrée dans le dossiers des binaires (_bin_). Avec l'exemple précédent, vous devriez obtenir un affichage similaire à celui-ci :
     ```sh
-    > testo v0.0.1 - resrc.club
+    > testo v0.0.2 - resrc.club
         tests > Exécution des tests...
-                > Test unitaire n°1 [1/1] -> ECHEC
+                > [1/1] Test unitaire n°1 -> ECHEC
         tests > Résultat : 0 sur 1
         Suite de tests > Exécution des tests...
-                > Test unitaire n°1 [1/1] -> ECHEC
+                > [1/1] Test unitaire n°1 -> ECHEC
         Suite de tests > Résultat : 0 sur 1
     ```

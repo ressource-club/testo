@@ -31,7 +31,7 @@ namespace resrc
                 if (aff) console->afficher(*this, "Exécution des tests...");
                 for (t = 0; t < n; t++)
                 {
-                    if (aff) console->afficher("\t\t> " + this->_tests[t]->nom() + " [" + std::to_string(t + 1) + "/" + ns + "] -> ", false);
+                    if (aff) console->afficher("\t\t> [" + std::to_string(t + 1) + "/" + ns + "] " + this->_tests[t]->nom() + " -> ", false);
                     try
                     {
                         if (this->_tests[t]->test())
