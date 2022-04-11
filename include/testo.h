@@ -6,6 +6,8 @@
 
 #define RESRC_TESTO_INTRO "> testo v" RESRC_TESTO_VERSION " - resrc.club"
 
+// TODO Planifier les futures versions.
+
 namespace resrc
 {
     namespace testo

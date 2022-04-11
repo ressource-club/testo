@@ -59,5 +59,9 @@ add_executable(
     ${RESRC_TESTO_INCLUDES}
     ${RESRC_TESTO_SRC_TESTS}
     ${RESRC_TESTO_INCLUDES_TETS}
-    ${RESRC_TESTO_PROJET} # Liste des fichiers du projet à tester
+    ${RESRC_TESTO_PROJET_SRC} # Liste des fichiers du projet à tester
+)
+target_link_libraries(
+    ${RESRC_TESTO_EXE}
+    ${RESRC_TESTO_PROJET_BIB} # Liste des bibliothèques à tester
 )

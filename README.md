@@ -11,12 +11,16 @@ __testo__ est un outil de test unitaire pour le _C++_ simple, léger et entière
     ```cmake
     include(${CMAKE_CURRENT_LIST_DIR}/bib/testo/CMakeLists.txt)
     ```
-    Vous pouvez également ajouter les fichiers sources de votre projet à la compilation de __testo__ grâce à la variable _RESRC_TESTO_PROJET_ :
+    Vous pouvez également ajouter les fichiers sources de votre projet à la compilation de __testo__ grâce à la variable _RESRC_TESTO_PROJET_SRC_, et des bibliothèques via la variable _RESRC_TESTO_PROJET_BIB_ :
     ```cmake
     set(
-        RESRC_TESTO_PROJET
-        ${PROJET_INCLUDES}  # Fichiers d'entête
-        ${PROJET_SRC}       # Fichiers sources
+        RESRC_TESTO_PROJET_SRC
+        ${PROJET_INCLUDES}      # Fichiers d'entête.
+        ${PROJET_SRC}           # Fichiers sources.
+    )
+    set(
+        RESRC_TESTO_PROJET_BIB
+        ${PROJET} ${PROJET_DEP} # Bibliothèques à inclure.
     )
     ```
 
