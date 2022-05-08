@@ -1,22 +1,28 @@
 #ifndef H_RESRC_TESTO_TEST
 #define H_RESRC_TESTO_TEST
 
-#include "ITest.h"
+#include "Composant.h"
 
 namespace resrc
 {
     namespace testo
     {
-        class Test : public ITest
+        class Test : public Composant
         {
-        private:
-            const std::string _nom;
-
         protected:
-            Test(const std::string nom) : _nom{ nom } {}
+            Test(const std::string nom);
+
+            virtual const bool test() = 0;
 
         public:
-            inline const std::string& nom() const override { return this->_nom; }
+            enum class Retour
+            {
+                SUCCES = 0,
+                ECHEC = 1,
+                ERREUR = -1
+            };
+
+            const int executer(const int argc, const char** argv) override;
         };
     }
 }

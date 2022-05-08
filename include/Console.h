@@ -1,7 +1,7 @@
 #ifndef H_RESRC_TESTO_CONSOLE
 #define H_RESRC_TESTO_CONSOLE
 
-#include "IElement.h"
+#include "Composant.h"
 
 #include <iostream>
 
@@ -11,13 +11,19 @@ namespace resrc
     {
         class Console
         {
-        public:
-            // TODO Affichage par crans avec la tabulation.
-            inline void afficher(const std::string message, const bool retour = true)
-            { std::cout << message << (retour ? "\n" : "") << std::flush; }
+        private:
+            static size_t _indentation;
 
-            inline void afficher(const IElement& element, const std::string message, const bool retour = true)
-            { afficher("\t" + element.nom() + " > " + message, retour); }
+        public:
+            static void augmenter_indentation();
+            static void reduire_indentation();
+
+            // TODO Affichage par crans avec la tabulation.
+            static void afficher(const std::string message, const bool retour = true);
+
+            static void afficher(const Composant* const composant, const std::string message, const bool retour = true, const bool nom = true);
+
+            inline static void saut() { afficher(""); }
         };
     }
 }
